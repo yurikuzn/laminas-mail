@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8af2a22442661b8f5e4953fcce6e992f",
+    "content-hash": "dcd9340d3a028728a9c364597e004205",
     "packages": [
         {
             "name": "laminas/laminas-loader",
@@ -64,21 +64,21 @@
         },
         {
             "name": "laminas/laminas-mime",
-            "version": "2.12.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laminas/laminas-mime.git",
-                "reference": "08cc544778829b7d68d27a097885bd6e7130135e"
+                "url": "https://github.com/yurikuzn/laminas-mime.git",
+                "reference": "25659453400e0b2970e490dd0e4045f62acf5371"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-mime/zipball/08cc544778829b7d68d27a097885bd6e7130135e",
-                "reference": "08cc544778829b7d68d27a097885bd6e7130135e",
+                "url": "https://api.github.com/repos/yurikuzn/laminas-mime/zipball/25659453400e0b2970e490dd0e4045f62acf5371",
+                "reference": "25659453400e0b2970e490dd0e4045f62acf5371",
                 "shasum": ""
             },
             "require": {
                 "laminas/laminas-stdlib": "^2.7 || ^3.0",
-                "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0"
+                "php": "~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "conflict": {
                 "zendframework/zend-mime": "*"
@@ -91,13 +91,39 @@
             "suggest": {
                 "laminas/laminas-mail": "Laminas\\Mail component"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Laminas\\Mime\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "files": [
+                    "test/TestAsset/Mail/Headers.php"
+                ],
+                "psr-4": {
+                    "LaminasTest\\Mime\\": "test/"
+                }
+            },
+            "scripts": {
+                "check": [
+                    "@cs-check",
+                    "@test"
+                ],
+                "cs-check": [
+                    "phpcs"
+                ],
+                "cs-fix": [
+                    "phpcbf"
+                ],
+                "test": [
+                    "phpunit --colors=always"
+                ],
+                "test-coverage": [
+                    "phpunit --colors=always --coverage-clover clover.xml"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -108,20 +134,15 @@
                 "mime"
             ],
             "support": {
-                "chat": "https://laminas.dev/chat",
                 "docs": "https://docs.laminas.dev/laminas-mime/",
-                "forum": "https://discourse.laminas.dev",
                 "issues": "https://github.com/laminas/laminas-mime/issues",
+                "source": "https://github.com/laminas/laminas-mime",
                 "rss": "https://github.com/laminas/laminas-mime/releases.atom",
-                "source": "https://github.com/laminas/laminas-mime"
+                "chat": "https://laminas.dev/chat",
+                "forum": "https://discourse.laminas.dev"
             },
-            "funding": [
-                {
-                    "url": "https://funding.communitybridge.org/projects/laminas-project",
-                    "type": "community_bridge"
-                }
-            ],
-            "time": "2023-11-02T16:47:19+00:00"
+            "abandoned": "symfony/mime",
+            "time": "2024-12-05T10:39:00+00:00"
         },
         {
             "name": "laminas/laminas-servicemanager",
@@ -4649,14 +4670,16 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "laminas/laminas-mime": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "~8.1.0 || ~8.2.0 || ~8.3.0",
+        "php": "~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0",
         "ext-iconv": "*"
     },
-    "platform-dev": {},
+    "platform-dev": [],
     "platform-overrides": {
         "php": "8.1.99"
     },
