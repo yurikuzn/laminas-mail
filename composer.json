@@ -30,8 +30,8 @@
     },
     "repositories": [
         {
-            "type" : "vcs",
-            "url" : "git@github.com:yurikuzn/laminas-mime.git"
+            "type": "git",
+            "url": "https://github.com/yurikuzn/laminas-mime.git"
         }
     ],
     "suggest": {
